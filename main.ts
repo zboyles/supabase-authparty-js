@@ -41,5 +41,12 @@ export const createFirebaseAuthSupabaseClient = <D extends Database = Database>(
       return _createClient<DB, S>(supabaseUrl, supabaseAnonKey, options);
   };
   return createClient;
-}
+};
 
+/**
+ * Get the JWT token from the Request headers.
+ * This is required to create a Supabase client with the correct permissions in Edge functions.
+ * @param headers Edge function's Request headers
+ * @returns The JWT token if it exists, otherwise null
+ */
+export const getJwtToken = (headers: Headers): string | null => headers.get("Authorization")?.replace("Bearer ", "") ?? null;
