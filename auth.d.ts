@@ -1,11 +1,6 @@
-
-import { SupabaseClient } from "@supabase/supabase-js";
-import type { SupabaseClientOptions } from "@supabase/supabase-js";
+import type { SupabaseClient, SupabaseClientOptions } from "@supabase/supabase-js";
 import type { Database } from "./types.d.ts";
-import type {
-  GenericSchema,
-} from "https://raw.githubusercontent.com/supabase/supabase-js/master/src/lib/types.ts";
-
+import type { GenericSchema } from "@supabase/supabase-js/npm/dist/main/lib/types"; // npm:@supabase/supabase-js@2.47.13/dist/main/lib/types
 import type { FirebaseAuth } from "@firebase/auth-types";
 // import type { Auth } from "firebase/auth";
 
@@ -32,5 +27,6 @@ export type CreateFirebaseAuthClientProps<DB extends Database = Database> = [
 type CreateClient = <
   DB extends Database = Database,
   S extends string & keyof Database = "public",
+// deno-lint-ignore no-explicit-any
 >(schemaName?: S) => SupabaseClient<DB, S, DB[S] extends GenericSchema ? DB[S] : any>;
 

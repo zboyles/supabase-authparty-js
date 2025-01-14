@@ -9,6 +9,7 @@
   "imports": {
     "@firebase/auth-types": "npm:@firebase/auth-types@^0.12.3",
     "@std/assert": "jsr:@std/assert@1",
-    "@supabase/supabase-js": "jsr:@supabase/supabase-js@^2.47.13"
+    "@supabase/supabase-js": "jsr:@supabase/supabase-js@2.47.13",
+    "@supabase/supabase-js/npm": "npm:@supabase/supabase-js@2.47.13"
   }
 }
