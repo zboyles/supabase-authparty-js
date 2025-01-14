@@ -1,4 +1,4 @@
-import { createClient as _createClient } from "@supabase/supabase-js";
+import { createClient as _createClient, type SupabaseClient } from "@supabase/supabase-js";
 import type {
   SupabaseClientOptions,
 } from "@supabase/supabase-js";
@@ -11,7 +11,7 @@ import type {
 
 export const createFirebaseAuthSupabaseClient = <D extends Database = Database>(
     ...args: CreateFirebaseAuthClientProps<D>
-) => {
+): <DBR extends D = D, S extends string & keyof D = "public">(schemaName?: S) => SupabaseClient<DBR, S> => {
     const [{auth, accessToken, jwtToken}, {supabaseUrl, supabaseAnonKey}] = args;
     
   const createClient = <
