@@ -2,6 +2,10 @@ import { assertEquals } from "@std/assert";
 import { createFirebaseAuthSupabaseClient } from "./mod.ts";
 import type { Database } from "./test/stripe.d.ts";
 
+/**
+ * More an example of how to use the `createFirebaseAuthSupabaseClient` function
+ * and see how the types are inferred correctly.
+ */
 Deno.test(async function addTest() {
   const createClient = createFirebaseAuthSupabaseClient<Database>({
     jwtToken: "test"

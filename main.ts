@@ -9,6 +9,13 @@ import type {
   Database,
 } from "./types.d.ts";
 
+
+/**
+ * 
+ * @param args `CreateFirebaseAuthClientProps` props
+ * @returns A function that creates a Supabase client with Firebase Auth of the currently logged in user.
+ * @see https://supabase.com/docs/guides/auth/third-party/firebase-auth
+ */
 export const createFirebaseAuthSupabaseClient = <D extends Database = Database>(
     ...args: CreateFirebaseAuthClientProps<D>
 ): <DBR extends D = D, S extends string & keyof D = "public">(schemaName?: S) => SupabaseClient<DBR, S> => {
